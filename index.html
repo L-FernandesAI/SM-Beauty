@@ -9,8 +9,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       .video-container {
         position: relative;
         width: 100%;
@@ -38,10 +44,15 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
       }
-      .content-container {
-        text-align: center;
-        position: relative;
-        z-index: 1;
+      @media (max-width: 768px) {
+        .video-container {
+          height: auto;
+          padding-top: 4rem;
+          padding-bottom: 4rem;
+        }
+        .video-background {
+          height: 100%;
+        }
       }
     </style>
   </head>
@@ -57,34 +68,32 @@
 
       <!-- Navbar -->
       <nav
-        class="absolute top-0 left-0 w-full flex justify-between items-center p-6 bg-black bg-opacity-50"
+        class="absolute top-0 left-0 w-full flex flex-wrap justify-between items-center p-6 bg-black bg-opacity-50"
       >
         <img src="img/alright.png" alt="Logo" class="h-10" />
-        <ul class="flex space-x-6">
+        <ul class="flex flex-wrap gap-4 justify-center md:space-x-6">
           <li>
-            <a href="#sobre" class="text-white text-lg hover:text-white-300"
+            <a href="#sobre" class="text-white text-lg hover:text-white"
               >Sobre</a
             >
           </li>
           <li>
-            <a href="#galeria" class="text-white text-lg hover:text-white-300"
+            <a href="#galeria" class="text-white text-lg hover:text-white"
               >Galeria</a
             >
           </li>
           <li>
-            <a href="#servicos" class="text-white text-lg hover:text-white-300"
+            <a href="#servicos" class="text-white text-lg hover:text-white"
               >Serviços</a
             >
           </li>
           <li>
-            <a
-              href="#avaliacoes"
-              class="text-white text-lg hover:text-white-300"
+            <a href="#avaliacoes" class="text-white text-lg hover:text-white"
               >Avaliações</a
             >
           </li>
           <li>
-            <a href="#contato" class="text-white text-lg hover:text-white-300"
+            <a href="#contato" class="text-white text-lg hover:text-white"
               >Contato</a
             >
           </li>
@@ -92,55 +101,66 @@
       </nav>
 
       <!-- Conteúdo Centralizado -->
-      <div class="content-container max-w-2xl">
-        <h1 class="text-5xl font-bold mb-4">Realce sua Beleza Natural</h1>
-        <p class="text-lg mb-6">
+      <!-- Conteúdo Centralizado -->
+      <!-- Conteúdo Centralizado -->
+      <div
+        class="content-container w-full px-6 text-center z-10 flex flex-col items-center justify-center min-h-[80vh]"
+      >
+        <h1
+          class="text-3xl sm:text-5xl font-extrabold mb-4 leading-tight text-white drop-shadow-lg"
+        >
+          Realce sua<br class="block sm:hidden" />
+          Beleza Natural
+        </h1>
+
+        <p
+          class="text-base sm:text-lg text-white/80 mb-8 max-w-md drop-shadow-sm"
+        >
           Sua melhor versão começa com um olhar incrível!
         </p>
+
         <a
           href="https://wa.me/351913198735?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20marca%C3%A7%C3%A3o%21"
           target="_blank"
-          class="bg-white text-black py-3 px-8 rounded-lg text-xl hover:bg-white-400 transition duration-300"
+          class="bg-white text-black font-semibold py-3 px-8 rounded-lg text-base sm:text-xl shadow-lg hover:scale-105 transition-all duration-300"
+          style="background-color: #ffffff !important"
         >
           Agende seu horário
         </a>
       </div>
     </div>
-
-    <!-- Sobre Mim -->
-    <section id="sobre" class="w-full h-[100vh] bg-[#e0e0e0]">
+    <!-- SOBRE MIM -->
+    <section id="sobre" class="w-full min-h-screen py-16 bg-[#e0e0e0]">
       <div class="flex flex-col md:flex-row h-full w-full">
-        <!-- Imagem esquerda com mesmo fundo -->
-        <div class="w-full md:w-1/2 h-1/2 md:h-full bg-[#e0e0e0]">
+        <!-- Imagem -->
+        <div class="w-full md:w-1/2 h-[400px] md:h-auto">
           <img
             src="img/s4.jpeg"
             alt="Sérgylla"
-            class="w-full h-full object-cover"
-            style="object-position: center top -20px"
+            class="w-full h-full object-cover object-top md:object-[center_top_-20px]"
           />
         </div>
 
-        <!-- Texto direita com mesmo fundo -->
+        <!-- Texto -->
         <div
-          class="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center bg-[#e0e0e0] px-6 md:px-12 text-center md:text-left"
+          class="w-full md:w-1/2 flex items-center justify-center bg-[#e0e0e0] px-6 md:px-12 text-center md:text-left"
         >
           <div style="font-family: 'Dancing Script', cursive">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-black mb-6">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-black mb-6">
               Sobre Mim
             </h2>
-
-            <p class="text-lg md:text-xl leading-relaxed mb-5 text-black">
+            <p class="text-base md:text-xl leading-relaxed mb-5 text-black">
               Me chamo Sérgylla, tenho 24 anos e vivo no Porto, Portugal, há 3
               anos. Sempre fui apaixonada pela área da estética. Atuei em outras
               áreas quando morava no Brasil, mas foi aqui que me entreguei
               completamente à minha atual profissão.
             </p>
-            <p class="text-lg md:text-xl leading-relaxed mb-5 text-black">
+            <p class="text-base md:text-xl leading-relaxed mb-5 text-black">
               Com investimento, muita dedicação e amor, comecei com a SM Beauty,
               que representa meu compromisso em realçar olhares com naturalidade
               e técnica.
             </p>
-            <p class="text-lg md:text-xl leading-relaxed text-black">
+            <p class="text-base md:text-xl leading-relaxed text-black">
               Meu objetivo é valorizar a singularidade, de forma única e
               personalizada. Entrego um serviço impecável, com total dedicação e
               atenção aos detalhes. Acredito na importância de respeitar e
@@ -154,18 +174,17 @@
       </div>
     </section>
 
-    <!-- Galeria -->
+    <!-- GALERIA -->
     <section id="galeria" class="py-16 bg-black text-center text-white w-full">
-      <h2 class="text-4xl font-bold text-white-300 mb-10">Galeria</h2>
-      <div class="swiper galeria-swiper max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-10">Galeria</h2>
+      <div class="swiper galeria-swiper max-w-6xl mx-auto px-4">
         <div class="swiper-wrapper">
           <!-- Slide 1 -->
           <div class="swiper-slide">
             <img
               src="img/01.jpeg"
               alt="Imagem 1"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
           <!-- Slide 2 -->
@@ -173,8 +192,7 @@
             <img
               src="img/02.jpeg"
               alt="Imagem 2"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
           <!-- Slide 3 -->
@@ -182,8 +200,7 @@
             <img
               src="img/03.jpeg"
               alt="Imagem 3"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
           <!-- Slide 4 -->
@@ -191,8 +208,7 @@
             <img
               src="img/04.jpeg"
               alt="Imagem 4"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
           <!-- Slide 5 -->
@@ -200,8 +216,7 @@
             <img
               src="img/05.jpeg"
               alt="Imagem 5"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
           <!-- Slide 6 -->
@@ -209,8 +224,7 @@
             <img
               src="img/06.jpeg"
               alt="Imagem 6"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
           <!-- Slide 7 -->
@@ -218,8 +232,7 @@
             <img
               src="img/07.jpeg"
               alt="Imagem 7"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
           <!-- Slide 8 -->
@@ -227,8 +240,7 @@
             <img
               src="img/08.jpeg"
               alt="Imagem 8"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
           <!-- Slide 9 -->
@@ -236,40 +248,32 @@
             <img
               src="img/09.jpeg"
               alt="Imagem 9"
-              class="w-full h-80 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              class="w-full h-64 md:h-80 object-cover rounded-lg shadow-md"
             />
           </div>
         </div>
-
-        <!-- Navegação -->
+        <!-- Paginação -->
         <div class="swiper-pagination mt-6"></div>
       </div>
     </section>
-    <!-- Serviços -->
-    <section id="servicos" class="py-20 bg-black text-white w-full">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-4xl font-bold text-white text-center mb-12">
-          Serviços
-        </h2>
-
-        <!-- Container com espaçamento entre os serviços -->
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="py-20 bg-black text-white w-full px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12">Serviços</h2>
         <div class="flex flex-col space-y-20">
           <!-- 1. Design Personalizado -->
           <div
             class="flex flex-col lg:flex-row items-center justify-between gap-10"
           >
-            <div class="lg:w-1/2 flex flex-col justify-center h-full">
-              <div class="max-w-md">
-                <h3 class="text-2xl font-semibold text-white-200 mb-4">
-                  Design de sobrancelhas personalizado
-                </h3>
-                <p class="text-white-100 text-base leading-relaxed">
-                  Serviço que modela as sobrancelhas de acordo com o formato do
-                  rosto de cada cliente. A minha técnica valoriza a expressão
-                  natural, garantindo um visual único e harmonioso.
-                </p>
-              </div>
+            <div class="lg:w-1/2">
+              <h3 class="text-2xl font-semibold mb-4">
+                Design de sobrancelhas personalizado
+              </h3>
+              <p class="text-white/80 text-base leading-relaxed">
+                Serviço que modela as sobrancelhas de acordo com o formato do
+                rosto de cada cliente. A minha técnica valoriza a expressão
+                natural, garantindo um visual único e harmonioso.
+              </p>
             </div>
             <div class="relative lg:w-1/2 flex justify-end">
               <div class="relative w-[350px]">
@@ -281,7 +285,7 @@
                 <img
                   src="img/DP2.jpeg"
                   alt="Zoom"
-                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg"
+                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg hidden md:block"
                 />
               </div>
             </div>
@@ -291,23 +295,22 @@
           <div
             class="flex flex-col lg:flex-row items-center justify-between gap-10"
           >
-            <div class="lg:w-1/2 flex flex-col justify-center h-full">
-              <div class="max-w-md">
-                <h3 class="text-2xl font-semibold text-white-200 mb-4">
-                  Design de sobrancelhas com henna ou coloração
-                </h3>
-                <p class="text-white-100 text-base leading-relaxed">
-                  A henna pigmenta a pele, criando um efeito preenchido e mais
-                  marcante. Ideal para quem deseja corrigir falhas. Duração
-                  média de 5 a 10 dias. A coloração tinge apenas os fios,
-                  proporcionando um efeito mais natural e sofisticado. Perfeita
-                  para alinhar o tom das sobrancelhas.
-                  <br /><br />
-                  <span class="italic text-white/70">
-                    Duração de até 25 dias.
-                  </span>
-                </p>
-              </div>
+            <div class="lg:w-1/2">
+              <h3 class="text-2xl font-semibold mb-4">
+                Design de sobrancelhas com henna ou coloração
+              </h3>
+              <p class="text-white/80 text-base leading-relaxed">
+                A henna pigmenta a pele, criando um efeito preenchido e mais
+                marcante. Ideal para quem deseja corrigir falhas. Duração média
+                de 5 a 10 dias.
+                <br /><br />
+                A coloração tinge apenas os fios, proporcionando um efeito mais
+                natural e sofisticado. Perfeita para alinhar o tom das
+                sobrancelhas.
+                <br /><span class="italic text-white/60"
+                  >Duração de até 25 dias.</span
+                >
+              </p>
             </div>
             <div class="relative lg:w-1/2 flex justify-end">
               <div class="relative w-[350px]">
@@ -319,7 +322,7 @@
                 <img
                   src="img/DH2.jpeg"
                   alt="Zoom"
-                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg"
+                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg hidden md:block"
                 />
               </div>
             </div>
@@ -329,24 +332,20 @@
           <div
             class="flex flex-col lg:flex-row items-center justify-between gap-10"
           >
-            <div class="lg:w-1/2 flex flex-col justify-center h-full">
-              <div class="max-w-md">
-                <h3 class="text-2xl font-semibold text-white-200 mb-4">
-                  Epilação Facial com Linha
-                </h3>
-                <p class="text-white-100 text-base leading-relaxed">
-                  A epilação na linha é uma técnica de remoção de pelos para
-                  quem busca remover os pelos faciais da raiz. Popular por ser
-                  mais precisa, higiênica e causar menos irritação que outros
-                  métodos.
-                  <br /><br />
-                  <span class="italic text-white/70">
-                    Além de proporcionar uma pele lisa com mais durabilidade,
-                    essa técnica é especialmente indicada para áreas sensíveis,
-                    como o buço, pois evita o uso de produtos químicos.
-                  </span>
-                </p>
-              </div>
+            <div class="lg:w-1/2">
+              <h3 class="text-2xl font-semibold mb-4">
+                Epilação Facial com Linha
+              </h3>
+              <p class="text-white/80 text-base leading-relaxed">
+                A epilação com linha é uma técnica de remoção de pelos da raiz.
+                Mais precisa, higiênica e causa menos irritação que outros
+                métodos.
+                <br /><br />
+                <span class="italic text-white/60"
+                  >Indicada especialmente para áreas sensíveis como o buço, pois
+                  evita o uso de produtos químicos.</span
+                >
+              </p>
             </div>
             <div class="relative lg:w-1/2 flex justify-end">
               <div class="relative w-[350px]">
@@ -358,7 +357,7 @@
                 <img
                   src="img/EP2.jpeg"
                   alt="Zoom"
-                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg"
+                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg hidden md:block"
                 />
               </div>
             </div>
@@ -368,23 +367,17 @@
           <div
             class="flex flex-col lg:flex-row items-center justify-between gap-10"
           >
-            <div class="lg:w-1/2 flex flex-col justify-center h-full">
-              <div class="max-w-md">
-                <h3 class="text-2xl font-semibold text-white-200 mb-4">
-                  Brow lamination
-                </h3>
-                <p class="text-white-100 text-base leading-relaxed">
-                  Técnica que alinha e fixa os fios das sobrancelhas,
-                  proporcionando um efeito de preenchimento e volume natural.
-                  Ideal para quem deseja sobrancelhas mais cheias e bem
-                  definidas com um visual duradouro.
-                  <br /><br />
-                  <span class="italic text-white/70">
-                    Duração de até 6 semanas, a depender do crescimento dos fios
-                    e dos cuidados pós procedimento.
-                  </span>
-                </p>
-              </div>
+            <div class="lg:w-1/2">
+              <h3 class="text-2xl font-semibold mb-4">Brow Lamination</h3>
+              <p class="text-white/80 text-base leading-relaxed">
+                Técnica que alinha e fixa os fios das sobrancelhas,
+                proporcionando um efeito de preenchimento e volume natural.
+                <br /><br />
+                <span class="italic text-white/60"
+                  >Duração de até 6 semanas, conforme crescimento dos fios e
+                  cuidados.</span
+                >
+              </p>
             </div>
             <div class="relative lg:w-1/2 flex justify-end">
               <div class="relative w-[350px]">
@@ -396,33 +389,27 @@
                 <img
                   src="img/BL2.jpeg"
                   alt="Zoom"
-                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg"
+                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg hidden md:block"
                 />
               </div>
             </div>
           </div>
 
-          <!-- 5. Lifting -->
+          <!-- 5. Lifting de Pestanas -->
           <div
             class="flex flex-col lg:flex-row items-center justify-between gap-10"
           >
-            <div class="lg:w-1/2 flex flex-col justify-center h-full">
-              <div class="max-w-md">
-                <h3 class="text-2xl font-semibold text-white-200 mb-4">
-                  Lifting de Pestanas
-                </h3>
-                <p class="text-white-100 text-base leading-relaxed">
-                  É um procedimento indicado para quem deseja realçar o olhar de
-                  forma natural e sofisticada. Uma técnica para curvar e alinhar
-                  as pestanas naturais, proporcionando um efeito duradouro e
-                  praticidade no dia a dia.
-                  <br /><br />
-                  <span class="italic text-white/70">
-                    Duração de até 6 semanas, a depender do crescimento dos fios
-                    e dos cuidados pós procedimento.
-                  </span>
-                </p>
-              </div>
+            <div class="lg:w-1/2">
+              <h3 class="text-2xl font-semibold mb-4">Lifting de Pestanas</h3>
+              <p class="text-white/80 text-base leading-relaxed">
+                Técnica indicada para curvar e alinhar os cílios naturais,
+                destacando o olhar de forma natural e duradoura.
+                <br /><br />
+                <span class="italic text-white/60"
+                  >Duração de até 6 semanas, conforme crescimento dos fios e
+                  cuidados.</span
+                >
+              </p>
             </div>
             <div class="relative lg:w-1/2 flex justify-end">
               <div class="relative w-[350px]">
@@ -434,7 +421,7 @@
                 <img
                   src="img/LF1.jpeg"
                   alt="Zoom"
-                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg"
+                  class="absolute bottom-[-8px] left-[-30px] w-[120px] h-[160px] object-cover rounded-lg border-4 border-white shadow-lg hidden md:block"
                 />
               </div>
             </div>
@@ -442,234 +429,236 @@
         </div>
       </div>
     </section>
-
-    <!-- Avaliações -->
-    <section id="avaliacoes" class="py-20 bg-black text-center text-white">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-4xl font-bold text-white-300 mb-4">
+    <!-- AVALIAÇÕES -->
+    <section id="avaliacoes" class="py-20 bg-black text-white">
+      <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- TÍTULO -->
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 leading-tight break-words"
+        >
           O que Nossas Clientes Dizem
         </h2>
-        <p class="text-lg text-gray-300 mb-12">
-          Veja as avaliações de quem já passou por aqui e saiu ainda mais linda
-          ✨
+
+        <!-- SUBTÍTULO -->
+        <p
+          class="text-sm sm:text-base md:text-lg text-gray-300 text-center mb-12 leading-relaxed px-4 sm:px-6 md:px-12 break-words max-w-full"
+        >
+          Veja as avaliações de quem já passou por aqui<br
+            class="block sm:hidden"
+          />
+          e saiu ainda mais linda ✨
         </p>
 
-        <!-- Swiper container -->
-        <div class="swiper avaliacoes-swiper">
+        <div class="swiper avaliacoes-swiper px-2">
           <div class="swiper-wrapper">
-            <!-- Avaliação 1 - Ediclécia Soares -->
+            <!-- Avaliação 1 -->
             <div class="swiper-slide">
               <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
               >
-                <p class="italic text-gray-300 mb-4">
+                <p class="text-sm text-gray-300 italic mb-4 break-words">
                   “Trabalho perfeito, eu simplesmente amei o resultado!🥰”
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/90.png"
-                    alt="Ediclécia Soares"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Ediclécia Soares</h3>
-                  <span class="text-sm text-gray-400">Cliente Satisfeita</span>
-                </div>
+                <img
+                  src="img/90.png"
+                  alt="Ediclécia Soares"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Ediclécia Soares</h3>
+                <span class="text-sm text-gray-400">Cliente Satisfeita</span>
               </div>
             </div>
 
-            <!-- Avaliação 2 - Amanda Meneses -->
+            <!-- Avaliação 2 -->
             <div class="swiper-slide">
               <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
               >
-                <p class="italic text-gray-300 mb-4">
-                  “Hey Sergylla, just dropping by to thank you! I absolutely
-                  loved the design.”
+                <p class="text-sm text-gray-300 italic mb-2">
+                  “Hey Sergylla, just dropping by to thank you!
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/91.png"
-                    alt="Amanda Meneses"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Florence Willow</h3>
-                  <span class="text-sm text-gray-400">Cliente Satisfeita</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Avaliação 3 - Eduarda Melo -->
-            <div class="swiper-slide">
-              <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
-              >
-                <p class="italic text-gray-300 mb-4">
-                  “Sérgylla, muito obrigada pelo atendimento incrível! Eu estou
-                  apaixonada!”
+                <p class="text-sm text-gray-300 italic mb-4">
+                  I absolutely loved the design.”
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/92.png"
-                    alt="Eduarda Melo"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Eduarda Melo</h3>
-                  <span class="text-sm text-gray-400">Cliente Feliz</span>
-                </div>
+                <img
+                  src="img/91.png"
+                  alt="Florence Willow"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Florence Willow</h3>
+                <span class="text-sm text-gray-400">Cliente Satisfeita</span>
               </div>
             </div>
 
-            <!-- Avaliação 4 - Thayná Alves -->
+            <!-- Avaliação 3 -->
             <div class="swiper-slide">
               <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
               >
-                <p class="italic text-gray-300 mb-4">
-                  “Oi Sergylla, amei muito o designer que você fez, super
-                  valorizou meu olhar!”
+                <p class="text-sm text-gray-300 italic mb-2">
+                  “Sérgylla, muito obrigada pelo atendimento incrível!
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/93.png"
-                    alt="Thayná Alves"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Thayná Alves</h3>
-                  <span class="text-sm text-gray-400">Cliente Satisfeita</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Avaliação 5 - Fernanda Silva -->
-            <div class="swiper-slide">
-              <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
-              >
-                <p class="italic text-gray-300 mb-4">
-                  “Boa tarde amiga 🩷 Eu amei minhas sobrancelhas, e seu
-                  atendimento, muito obrigada!”
+                <p class="text-sm text-gray-300 italic mb-4">
+                  Eu estou apaixonada!”
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/94.png"
-                    alt="Fernanda Silva"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Fernanda Silva</h3>
-                  <span class="text-sm text-gray-400">Cliente Satisfeita</span>
-                </div>
+                <img
+                  src="img/92.png"
+                  alt="Eduarda Melo"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Eduarda Melo</h3>
+                <span class="text-sm text-gray-400">Cliente Feliz</span>
               </div>
             </div>
 
-            <!-- Avaliação 6 - Amanda Mendonça -->
+            <!-- Avaliação 4 -->
             <div class="swiper-slide">
               <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
               >
-                <p class="italic text-gray-300 mb-4">
+                <p class="text-sm text-gray-300 italic mb-2">
+                  “Oi Sergylla, amei muito o designer que você fez,
+                </p>
+                <p class="text-sm text-gray-300 italic mb-4">
+                  super valorizou meu olhar!”
+                </p>
+                <img
+                  src="img/93.png"
+                  alt="Thayná Alves"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Thayná Alves</h3>
+                <span class="text-sm text-gray-400">Cliente Satisfeita</span>
+              </div>
+            </div>
+
+            <!-- Avaliação 5 -->
+            <div class="swiper-slide">
+              <div
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
+              >
+                <p class="text-sm text-gray-300 italic mb-2">
+                  “Boa tarde amiga 🩷 Eu amei minhas sobrancelhas,
+                </p>
+                <p class="text-sm text-gray-300 italic mb-4">
+                  e seu atendimento, muito obrigada!”
+                </p>
+                <img
+                  src="img/94.png"
+                  alt="Fernanda Silva"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Fernanda Silva</h3>
+                <span class="text-sm text-gray-400">Cliente Satisfeita</span>
+              </div>
+            </div>
+
+            <!-- Avaliação 6 -->
+            <div class="swiper-slide">
+              <div
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
+              >
+                <p class="text-sm text-gray-300 italic mb-4">
                   “Trabalho perfeito, eu simplesmente amei o resultado!🥰”
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/95.png"
-                    alt="Amanda Mendonça"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Amanda Mendonça</h3>
-                  <span class="text-sm text-gray-400">Cliente Encantada</span>
-                </div>
+                <img
+                  src="img/95.png"
+                  alt="Amanda Mendonça"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Amanda Mendonça</h3>
+                <span class="text-sm text-gray-400">Cliente Encantada</span>
               </div>
             </div>
 
-            <!-- Avaliação 7 - Silvia Magalhães -->
+            <!-- Avaliação 7 -->
             <div class="swiper-slide">
               <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
               >
-                <p class="italic text-gray-300 mb-4">
-                  “Para além de ser super simpática, é uma profissional de
-                  excelência.”
+                <p class="text-sm text-gray-300 italic mb-2">
+                  “Para além de ser super simpática,
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/96.png"
-                    alt="Silvia Magalhães"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Silvia Magalhães</h3>
-                  <span class="text-sm text-gray-400">Cliente Feliz</span>
-                </div>
+                <p class="text-sm text-gray-300 italic mb-4">
+                  é uma profissional de excelência.”
+                </p>
+                <img
+                  src="img/96.png"
+                  alt="Silvia Magalhães"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Silvia Magalhães</h3>
+                <span class="text-sm text-gray-400">Cliente Feliz</span>
               </div>
             </div>
 
-            <!-- Avaliação 8 - Melissa Bispo -->
+            <!-- Avaliação 8 -->
             <div class="swiper-slide">
               <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
               >
-                <p class="italic text-gray-300 mb-4">
-                  “Oiii, nossa tô impressionada com teu trabalho! Minha
-                  sobrancelha tá perfeita!”
+                <p class="text-sm text-gray-300 italic mb-2">
+                  “Oiii, nossa tô impressionada com teu trabalho!
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/97.png"
-                    alt="Melissa Bispo"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Melissa Bispo</h3>
-                  <span class="text-sm text-gray-400">Cliente Fiel</span>
-                </div>
+                <p class="text-sm text-gray-300 italic mb-4">
+                  Minha sobrancelha tá perfeita!”
+                </p>
+                <img
+                  src="img/97.png"
+                  alt="Melissa Bispo"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Melissa Bispo</h3>
+                <span class="text-sm text-gray-400">Cliente Fiel</span>
               </div>
             </div>
 
-            <!-- Avaliação 9 - Amanda Lorena -->
+            <!-- Avaliação 9 -->
             <div class="swiper-slide">
               <div
-                class="bg-gray-900 p-6 rounded-xl shadow-lg transition hover:shadow-white-300/20 duration-300"
+                class="bg-gray-900 p-4 rounded-xl shadow-lg w-full max-w-sm mx-auto text-center"
               >
-                <p class="italic text-gray-300 mb-4">
-                  “Olá Sergylla, adorei o resultado. Estou realmente apaixonada.
-                  😍”
+                <p class="text-sm text-gray-300 italic mb-2">
+                  “Olá Sergylla, adorei o resultado.
                 </p>
-                <div class="flex flex-col items-center">
-                  <img
-                    src="img/98.png"
-                    alt="Amanda Lorena"
-                    class="w-16 h-16 rounded-full mb-2 border-2 border-white-300"
-                  />
-                  <h3 class="font-semibold">Amanda Lorena</h3>
-                  <span class="text-sm text-gray-400">Cliente Satisfeita</span>
-                </div>
+                <p class="text-sm text-gray-300 italic mb-4">
+                  Estou realmente apaixonada. 😍”
+                </p>
+                <img
+                  src="img/98.png"
+                  alt="Amanda Lorena"
+                  class="w-16 h-16 rounded-full border-2 border-white mx-auto mb-2"
+                />
+                <h3 class="font-semibold text-base">Amanda Lorena</h3>
+                <span class="text-sm text-gray-400">Cliente Satisfeita</span>
               </div>
             </div>
           </div>
-
-          <!-- Paginação -->
           <div class="swiper-pagination mt-6"></div>
         </div>
       </div>
     </section>
 
-    <!-- WRAPPER: IMAGEM DE FUNDO + SECTION + FOOTER -->
-    <div class="relative bg-[url('img/s5.jpeg')] bg-cover bg-[center_15%]">
-      <!-- 🔽 SECTION CONTATO -->
+    <!-- CONTATO -->
+    <!-- WRAPPER COM IMAGEM DE FUNDO -->
+    <div class="relative bg-[url('img/s3.jpeg')] bg-cover bg-[center_10%]">
+      <!-- CONTATO -->
       <section
         id="contato"
         class="relative py-20 bg-black/70 text-white w-full"
       >
         <div
-          class="w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-6 md:px-16"
+          class="w-full px-6 md:px-16 mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 px-6 md:px-16 items-center"
         >
-          <!-- Texto e botão -->
+          <!-- Texto + Botão -->
           <div>
-            <h2 class="text-4xl font-bold text-white mb-4">Entre em Contato</h2>
+            <h2 class="text-4xl font-bold mb-4">Entre em Contato</h2>
             <p class="text-lg text-gray-300 mb-6">
               Ficou com alguma dúvida ou quer agendar seu horário? Fale com a
               gente pelo WhatsApp!
             </p>
             <a
-              href="https://wa.me/351913198735?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20marca%C3%A7%C3%A3o%21"
+              href="https://wa.me/351913198735?text=Olá,%20gostaria%20de%20fazer%20uma%20marcação!"
               target="_blank"
               class="inline-block px-6 py-3 bg-white text-black text-lg font-semibold rounded-lg shadow-md"
             >
@@ -677,7 +666,7 @@
             </a>
           </div>
 
-          <!-- Informações -->
+          <!-- Infos -->
           <div class="space-y-6">
             <div class="flex items-center space-x-4">
               <span class="text-white text-xl">📞</span>
@@ -690,17 +679,20 @@
                   href="https://goo.gl/maps/seulink"
                   target="_blank"
                   class="hover:underline"
-                  >Travessa de Faria de Guimarães 27, 4200-288 Porto,
-                  Portugal</a
                 >
+                  Travessa de Faria de Guimarães 27, 4200-288 Porto, Portugal
+                </a>
               </p>
             </div>
             <div class="flex items-center space-x-4">
               <span class="text-white text-xl">📧</span>
               <p class="text-lg text-gray-300">
-                <a href="mailto:smbeauty.pt@outlook.com" class="hover:underline"
-                  >smbeauty.pt@outlook.com</a
+                <a
+                  href="mailto:smbeauty.pt@outlook.com"
+                  class="hover:underline"
                 >
+                  smbeauty.pt@outlook.com
+                </a>
               </p>
             </div>
             <div class="flex items-center space-x-4">
@@ -710,18 +702,18 @@
                   href="https://instagram.com/smbeauty.pt"
                   target="_blank"
                   class="hover:underline"
-                  >@smbeauty.pt</a
                 >
+                  @smbeauty.pt
+                </a>
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 🔽 FOOTER -->
-      <footer
-        class="relative bg-black/70 text-gray-300 py-10 text-center w-full"
-      >
+      <!-- FOOTER -->
+      <!-- FOOTER -->
+      <footer class="bg-black/70 text-gray-300 py-10 text-center w-full">
         <div class="w-full px-6 md:px-16">
           <!-- Logo -->
           <div class="mb-6 flex justify-center">
@@ -746,28 +738,23 @@
               href="https://wa.me/+351913198735"
               target="_blank"
               class="text-white hover:underline"
-              >+351 913 198 735</a
             >
+              +351 913 198 735
+            </a>
           </p>
 
-          <!-- Copyright -->
           <p class="text-sm text-gray-500 mt-6">
             &copy; 2025 SM Beauty. Todos os direitos reservados.
           </p>
         </div>
       </footer>
     </div>
+    <!-- Fim do wrapper com imagem de fundo -->
 
-    <!-- Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-
-    <!-- Swiper JS -->
+    <!-- SWIPER JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Inicialização do Swiper -->
+    <!-- INICIALIZAÇÃO DOS SWIPERS -->
     <script>
       const galeriaSwiper = new Swiper(".galeria-swiper", {
         slidesPerView: 1,
@@ -778,26 +765,12 @@
           clickable: true,
         },
         breakpoints: {
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
         },
       });
-    </script>
-    <!-- Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Inicialização do Swiper -->
-    <script>
       const avaliacoesSwiper = new Swiper(".avaliacoes-swiper", {
         slidesPerView: 1,
         spaceBetween: 20,
@@ -807,12 +780,9 @@
           clickable: true,
         },
         breakpoints: {
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
         },
       });
     </script>
